@@ -127,7 +127,7 @@ class ClimateBenchDataModule(pl.LightningDataModule):
         return self.lat, self.lon
 
     def get_data_dims(self):
-        x, y = self.train_dataset[0]
+        x, y = self.dataset_train[0]
         y = F.pad(y, (2, 2, 3, 3))
         return x.unsqueeze(0).shape, y.unsqueeze(0).shape
 
