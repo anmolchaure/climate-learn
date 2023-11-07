@@ -128,6 +128,8 @@ class ClimateBenchDataModule(pl.LightningDataModule):
 
     def get_data_dims(self):
         x, y = self.dataset_train[0]
+        import torch
+        y = torch.tensor(y)
         y = F.pad(y, (2, 2, 3, 3))
         return x.unsqueeze(0).shape, y.unsqueeze(0).shape
 
